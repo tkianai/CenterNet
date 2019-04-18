@@ -1,11 +1,12 @@
 {
     "system": {
         "dataset": "MSCOCO",
-        "batch_size": 16,
+        "batch_size": 18,
         "sampling_function": "kp_detection",
 
-        "train_split": "train2017",
-        "val_split": "val2017",
+        "train_split": "lsvt_train",
+        "val_split": "lsvt_val",
+        "test_split": "lsvt_val",
 
         "learning_rate": 0.00025,
         "decay_rate": 10,
@@ -19,9 +20,9 @@
         "stepsize": 450000,
         "snapshot": 5000,
 
-        "chunk_sizes": [2,2,2,2,2,2,2,2],
-
-        "data_dir": "datasets/coco/"
+        "chunk_sizes": [3,3,3,3,3,3,3,3],
+        "pretrain": "pretrained/CenterNet-104/CenterNet-104_480000.pkl",
+        "data_dir": "datasets/ICDAR2019/"
     },
     
     "db": {
@@ -39,13 +40,16 @@
         "input_size": [511, 511],
         "output_sizes": [[128, 128]],
 
-        "test_scales": [1],
+        "test_scales": [0.6, 1, 1.2, 1.5, 1.8],
 
         "top_k": 70,
-        "categories": 80,
+        "categories": 1,
         "kp_categories": 1,
         "ae_threshold": 0.5,
         "nms_threshold": 0.5,
+
+        "merge_bbox": true,
+        "weight_exp": 10,
 
         "max_per_image": 100
     }

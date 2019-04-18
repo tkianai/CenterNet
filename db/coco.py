@@ -26,9 +26,11 @@ class MSCOCO(DETECTION):
             "testdev": "testdev2017",
             "train2017": "train2017",
             "val2017": "val2017",
+            "lsvt_train": "lsvt_train",
+            "lsvt_val": "lsvt_val",
         }[self._split]
         
-        self._coco_dir = os.path.join(data_dir, "coco")
+        self._coco_dir = os.path.abspath(data_dir)
 
         self._label_dir  = os.path.join(self._coco_dir, "annotations")
         self._label_file = os.path.join(self._label_dir, "instances_{}.json")
