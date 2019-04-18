@@ -76,6 +76,10 @@ class DETECTION(BASE):
 
         self.update_config(db_config)
 
+        # add others
+        self._model['bbox_head']['num_classes'] = self._configs["categories"] + 1
+        print("bbox_head num_classes: {}".format(self._model['bbox_head']['num_classes']))
+
         if self._configs["rand_scales"] is None:
             self._configs["rand_scales"] = np.arange(
                 self._configs["rand_scale_min"], 
