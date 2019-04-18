@@ -129,7 +129,9 @@ class NetworkFactory(object):
         print("loading model from {}".format(cache_file))
         with open(cache_file, "rb") as f:
             params = torch.load(f)
-            self.model.load_state_dict(params)
+            model_state_dict = self.model.state_dict()
+            model_state_dict.update(params)
+            self.model.load_state_dict(model_state_dict)
 
     def save_params(self, iteration):
         cache_file = system_configs.snapshot_file.format(iteration)
