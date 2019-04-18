@@ -23,7 +23,9 @@ class MSCOCO(DETECTION):
         self._dataset = {
             "trainval": "trainval2014",
             "minival": "minival2014",
-            "testdev": "testdev2017"
+            "testdev": "testdev2017",
+            "train2017": "train2017",
+            "val2017": "val2017",
         }[self._split]
         
         self._coco_dir = os.path.join(data_dir, "coco")
