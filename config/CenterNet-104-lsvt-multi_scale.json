@@ -21,7 +21,7 @@
         "snapshot": 5000,
 
         "chunk_sizes": [3,3,3,3,3,3,3,3],
-        "pretrain": "pretrained/CenterNet-104/CenterNet-104_480000.pkl",
+        "pretrain": "pretrained/CenterNet-104/CenterNet-104_480000_icdar.pkl",
         "data_dir": "datasets/ICDAR2019/"
     },
     
